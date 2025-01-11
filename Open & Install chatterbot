@@ -1,0 +1,11 @@
+
+python -m venv myenv
+
+
+# On Windows
+myenv\Scripts\activate
+
+# On macOS/Linux
+source myenv/bin/activate
+
+pip install chatterbot chatterbot-corpus
