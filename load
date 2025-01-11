@@ -1,0 +1,27 @@
+from chatterbot import ChatBot
+from chatterbot.trainers import ChatterBotCorpusTrainer
+
+# Create a new chatbot instance
+chatbot = ChatBot('TestBot1')
+
+# Create a new trainer for the chatbot
+trainer = ChatterBotCorpusTrainer(chatbot)
+
+# Train the chatbot based on the English corpus
+trainer.train("chatterbot.corpus.english")
+
+print("Testbot1 is ready to talk! Type 'exit' to end the conversation.")
+
+# Start a conversation with the chatbot
+while True:
+    try:
+        user_input = input("You: ")
+        if user_input.lower() == 'exit':
+            print("ChatBot: Goodbye!")
+            break
+
+        response = chatbot.get_response(user_input)
+        print(f"ChatBot: {response}")
+
+    except (KeyboardInterrupt, EOFError, SystemExit):
+        
